@@ -1,0 +1,23 @@
+  $ORIGIN example.com.                                            ; dominio principal
+  $TTL 87300                                                      ; Time To Live (general)
+
+                              A       10.10.10.10                 ; registro A principal
+  subtrapal.example.com.      A       10.10.255.1                 ; subdominio en otra IP
+
+  ns1.example.com.            NS      subtrapal.example.com.      ; registro de otro DNS
+
+  catatumbo.example.com.  IN  CNAME   example.com.                ; subdominio en la ip del principal
+
+  submail2.example.com.       CNAME   example.com.
+
+  testera.example.com.    CH  CNAME   subtrapal.example.com.      ; registro en clase chaosnet
+
+  testera.example.com.    HS  CNAME   subtrapal.example.com.      ; registro en clase hesiod
+
+  submail.example.com.    IN  A       10.10.0.1
+
+  txt.example.com.        IN  TXT    Hola_Mundo_Encoded!          ; para el intercambio de datos adicionales
+
+  mail.example.com.           MX  10  example.com.                ; direcciones de correo
+                              MX  20  submail.example.com.
+  mail.example.com.           MX  30  submail2.example.com.
